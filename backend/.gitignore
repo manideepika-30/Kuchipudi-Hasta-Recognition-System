@@ -1,0 +1,15 @@
+# Environment Variables and Secrets
+.env
+.env.*
+*.env
+
+# SQLite Database
+*.db
+*.sqlite
+*.sqlite3
+kuchipudi.db
+
+# Python Virtual Environment & Cache
+.venv/
+__pycache__/
+*.py[cod]

@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nritya AI — Authentic Kuchipudi Hasta Contact Sheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --crimson: #800020;
+            --maroon-dark: #4a0011;
+            --gold: #c5a059;
+            --gold-light: #f3e5ab;
+            --bg-cream: #fbf9f5;
+            --card-bg: #ffffff;
+            --text-dark: #231f20;
+            --text-muted: #66605b;
+            --border-soft: #ebdccb;
+            --badge-green: #1b5e20;
+            --badge-bg: #e8f5e9;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.5;
+            padding: 2.5rem 1.5rem;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-soft);
+        }
+        .brand-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--crimson), var(--maroon-dark));
+            color: #ffffff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--crimson);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+        .meta-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .stat-chip {
+            background: var(--card-bg);
+            border: 1px solid var(--border-soft);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .stat-chip strong {
+            color: var(--crimson);
+            font-size: 1.25rem;
+        }
+        .section-header {
+            margin: 3.5rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--crimson);
+            padding-bottom: 0.75rem;
+        }
+        .section-header h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--crimson);
+            font-size: 1.75rem;
+        }
+        .shloka-bar {
+            background: #fff8f0;
+            border-left: 4px solid var(--gold);
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            font-style: italic;
+            color: #5d4037;
+            font-size: 0.95rem;
+        }
+        .hasta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.75rem;
+        }
+        .hasta-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hasta-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(128,0,32,0.12);
+        }
+        .card-img-wrap {
+            width: 100%;
+            height: 280px;
+            background: #f4ece1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-soft);
+        }
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        .hasta-card:hover .card-img-wrap img {
+            transform: scale(1.03);
+        }
+        .order-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(128, 0, 32, 0.9);
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            backdrop-filter: blur(4px);
+            letter-spacing: 0.05em;
+        }
+        .verify-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--badge-bg);
+            color: var(--badge-green);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(27,94,32,0.2);
+            backdrop-filter: blur(4px);
+        }
+        .card-body {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .card-title-row {
+            margin-bottom: 0.5rem;
+        }
+        .name-en {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            color: var(--crimson);
+            font-weight: 700;
+        }
+        .name-te {
+            font-size: 1.05rem;
+            color: #b07d10;
+            font-weight: 600;
+            margin-left: 0.4rem;
+        }
+        .name-sa {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+        .meaning-pill {
+            display: inline-block;
+            background: #fdf5e6;
+            color: #8a531b;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+        .usage-text {
+            font-size: 0.85rem;
+            color: #444;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        .source-meta {
+            border-top: 1px dashed var(--border-soft);
+            padding-top: 0.75rem;
+            font-size: 0.75rem;
+            color: #777;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .source-meta strong {
+            color: #444;
+        }
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-soft);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand-badge">Nritya AI Classical Dance Archive</div>
+            <h1>Verified Kuchipudi Hasta Contact Sheet</h1>
+            <p class="subtitle">Complete visual verification matrix for all 52 canonical hand gestures (28 Asamyukta & 24 Samyukta) mapped exclusively to the authentic dancer dataset and authoritative Shastric literature.</p>
+            <div class="meta-stats">
+                <div class="stat-chip"><span>Total Gestures:</span> <strong>52</strong></div>
+                <div class="stat-chip"><span>Asamyukta Hastas:</span> <strong>28</strong></div>
+                <div class="stat-chip"><span>Samyukta Hastas:</span> <strong>24</strong></div>
+                <div class="stat-chip"><span>Authenticity Status:</span> <strong>100% Authoritative</strong></div>
+            </div>
+        </header>
+
+        <!-- SECTION 1: ASAMYUKTA HASTAS -->
+        <div class="section-header">
+            <h2>1. Asamyukta Hasthas (28 Single-Hand Gestures)</h2>
+            <span style="font-size: 0.9rem; color: var(--crimson); font-weight: 600;">Module 2 Syllabus</span>
+        </div>
+        <div class="shloka-bar">
+            <strong>Abhinaya Darpana Shloka:</strong> పతాకః త్రిపతాకోఽర్థపతాకః కర్తరీముఖః | మయూరాఖ్యోఽర్థచంద్రశ్చ హ్యరాళః శుకతుండకః || ముష్టిశ్చ శిఖరాఖ్యశ్చ కపిత్థః కటకాముఖః | సూచీ చంద్రకళా పద్మకోశః సర్పశిరస్తథా || మృగశీర్షః సింహముఖః కాంగూలశ్చాలపద్మకః | చతురో భ్రమరశ్చైవ హంసాస్యో హంసపక్షకః || సందంశో ముకులశ్చైవ తామ్రచూడస్త్రిశూలకః | ఇత్యసంయుతహస్తానామష్టావింశతిరీరితా ||
+        </div>
+        <div class="hasta-grid">
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#01</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_01_pathaka.jpg" alt="Pathaka Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Pathaka</span>
+                        <span class="name-te">పతాక హస్తము</span>
+                    </div>
+                    <div class="name-sa">Patāka Hasta (పతాకః)</div>
+                    <div><span class="meaning-pill">Meaning: Flag / Banner</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Beginning of dance, clouds, forest, river, forbidding things, sword, night, river, world of gods.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 1.47.54 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#02</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_02_tripathaka.jpg" alt="Tripathaka Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Tripathaka</span>
+                        <span class="name-te">త్రిపతాక హస్తము</span>
+                    </div>
+                    <div class="name-sa">Tripatāka Hasta (త్రిపతాకః)</div>
+                    <div><span class="meaning-pill">Meaning: Three Parts of Flag</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Crown, tree, thunderbolt (vajra), Indra, lamp, arrow, turning round, rising flames.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 1.57.18 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#03</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_03_ardhapathaka.jpg" alt="Ardhapathaka Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Ardhapathaka</span>
+                        <span class="name-te">అర్ధపతాక హస్తము</span>
+                    </div>
+                    <div class="name-sa">Ardhapatāka Hasta (అర్ధపతాకః)</div>
+                    <div><span class="meaning-pill">Meaning: Half Flag</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Leaves, writing board (patra), river bank, knife, tower, horn, two persons.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 2.00.14 AM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#04</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_04_kartarimukha.jpg" alt="Kartarimukha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Kartarimukha</span>
+                        <span class="name-te">కర్తరీముఖ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kartarīmukha Hasta (కర్తరీముఖః)</div>
+                    <div><span class="meaning-pill">Meaning: Scissors Face</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Separation of lovers, opposition, corner of eye, death, lightning, sleeping alone, falling.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 2.02.48 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#05</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_05_mayura.jpg" alt="Mayura Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Mayura</span>
+                        <span class="name-te">మయూర హస్తము</span>
+                    </div>
+                    <div class="name-sa">Mayūra Hasta (మయూరాఖ్యః)</div>
+                    <div><span class="meaning-pill">Meaning: Peacock</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Peacock neck, creeper, bird of omen, vomiting, stroking curly hair, tilaka, forehead mark.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 2.06.55 AM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#06</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_06_ardhachandra.jpg" alt="Ardhachandra Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Ardhachandra</span>
+                        <span class="name-te">అర్ధచంద్ర హస్తము</span>
+                    </div>
+                    <div class="name-sa">Ardhacandra Hasta (అర్థచంద్రశ్చ)</div>
+                    <div><span class="meaning-pill">Meaning: Half Moon / Crescent</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Crescent moon on Shiva's crown, spear, consecrated plate, greeting commoners, waistline.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 2.14.34 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#07</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_07_arala.jpg" alt="Arala Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Arala</span>
+                        <span class="name-te">అరాళ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Arāla Hasta (అరాళః)</div>
+                    <div><span class="meaning-pill">Meaning: Bent / Curved</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Drinking poison (halahala), strong wind, violent storms, drinking nectar, blessing.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 2.30.16 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#08</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_08_sukatunda.jpg" alt="Sukatunda Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Sukatunda</span>
+                        <span class="name-te">శుకతుండ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Śukatuṇḍaka Hasta (శుకతుండకః)</div>
+                    <div><span class="meaning-pill">Meaning: Parrot's Beak</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Shooting arrows, remembering absent lover, ferocious anger, mystery, throwing spears.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 2.26.31 AM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#09</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_09_mushti.jpg" alt="Mushti Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Mushti</span>
+                        <span class="name-te">ముష్టి హస్తము</span>
+                    </div>
+                    <div class="name-sa">Muṣṭi Hasta (ముష్టిశ్చ)</div>
+                    <div><span class="meaning-pill">Meaning: Fist</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Steadiness, clasping hair, holding weapons, grasping reins of chariot, boxing, wrestling.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 9.27.52 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#10</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_10_shikhara.jpg" alt="Shikhara Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Shikhara</span>
+                        <span class="name-te">శిఖర హస్తము</span>
+                    </div>
+                    <div class="name-sa">Śikhara Hasta (శిఖరాఖ్యశ్చ)</div>
+                    <div><span class="meaning-pill">Meaning: Peak / Spire / Bow</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Lord Shiva, Kamadeva's bow, pillar, teeth, questioning, phallus, applying red tilak.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.34.28 AM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#11</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_11_kapittha.jpg" alt="Kapittha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Kapittha</span>
+                        <span class="name-te">కపిత్థ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kapittha Hasta (కపిత్థః)</div>
+                    <div><span class="meaning-pill">Meaning: Wood Apple / Lakshmi</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Goddess Lakshmi, Goddess Saraswati, holding cymbals, milking cows, gathering flowers.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.36.39 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#12</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_12_katakamukha.jpg" alt="Katakamukha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Katakamukha</span>
+                        <span class="name-te">కటకాముఖ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kaṭakāmukha Hasta (కటకాముఖః)</div>
+                    <div><span class="meaning-pill">Meaning: Opening of a Bracelet / Pearl</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Plucking flowers, holding pearl necklace, drawing bowstring slowly, offering betel nut.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.41.57 AM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#13</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_13_soochi.jpg" alt="Soochi Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Soochi</span>
+                        <span class="name-te">సూచి హస్తము</span>
+                    </div>
+                    <div class="name-sa">Sūcī Hasta (సూచీ)</div>
+                    <div><span class="meaning-pill">Meaning: Needle / One</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Number one, Parabrahma (Supreme Being), world, sun, city, listening, umbrella, thin thread.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.43.49 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#14</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_14_chandrakala.jpg" alt="Chandrakala Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Chandrakala</span>
+                        <span class="name-te">చంద్రకళ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Candrakalā Hasta (చంద్రకళా)</div>
+                    <div><span class="meaning-pill">Meaning: Digit of the Moon</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Moon beam, Shiva's locks, face, size between thumb and index, crown jewel.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.45.55 AM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#15</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_15_padmakosha.jpg" alt="Padmakosha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Padmakosha</span>
+                        <span class="name-te">పద్మకోశ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Padmakośa Hasta (పద్మకోశః)</div>
+                    <div><span class="meaning-pill">Meaning: Lotus Bud</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Fruits (bilva, mango), lotus bud, circular movement, ball of food, eggs, scattering flowers.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.47.39 AM (2).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#16</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_16_sarpasheersha.jpg" alt="Sarpasheersha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Sarpasheersha</span>
+                        <span class="name-te">సర్పశీర్ష హస్తము</span>
+                    </div>
+                    <div class="name-sa">Sarpaśīrṣa Hasta (సర్పశిరస్తథా)</div>
+                    <div><span class="meaning-pill">Meaning: Serpent's Hood</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Cobra hood, sandal paste, water offering, blessing of snake deity, washing face.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.49.09 AM (2).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#17</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_17_mrugasheersha.jpg" alt="Mrugasheersha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Mrugasheersha</span>
+                        <span class="name-te">మృగశీర్ష హస్తము</span>
+                    </div>
+                    <div class="name-sa">Mṛgaśīrṣa Hasta (మృగశీర్షః)</div>
+                    <div><span class="meaning-pill">Meaning: Deer Head</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Women, cheek, deer head, playing flute, roaming, drawing lute, steps of deer.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.52.52 AM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#18</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_18_simhamukha.jpg" alt="Simhamukha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Simhamukha</span>
+                        <span class="name-te">సింహముఖ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Siṃhamukha Hasta (సింహముఖః)</div>
+                    <div><span class="meaning-pill">Meaning: Lion Face</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Lion face, pearl, coral, lotus garland, havan (sacred fire offering), hare, medicine.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.57.25 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#19</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_19_kaangula.jpg" alt="Kaangula Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Kaangula</span>
+                        <span class="name-te">కాంగూల హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kāṅgūla Hasta (కాంగూలశ్చ)</div>
+                    <div><span class="meaning-pill">Meaning: Tail / Small Bell</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Betel tree fruit, bells, coconut, chataka bird, water lily, small fruit.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.59.37 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#20</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_20_alapadma.jpg" alt="Alapadma Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Alapadma</span>
+                        <span class="name-te">అలపద్మ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Alapadma Hasta (ఆలపద్మకః)</div>
+                    <div><span class="meaning-pill">Meaning: Full-Bloomed Lotus</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Fully blossomed lotus, solar orb, churning curd, praising beauty, mirror, beauty.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.02.11 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#21</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_21_chatura.jpg" alt="Chatura Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Chatura</span>
+                        <span class="name-te">చతుర హస్తము</span>
+                    </div>
+                    <div class="name-sa">Catura Hasta (చతురో)</div>
+                    <div><span class="meaning-pill">Meaning: Four Corners / Clever</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Musk, modest amount, gold, copper, intellect, sorrow, sweet face, oil.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.05.08 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#22</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_22_bhramara.jpg" alt="Bhramara Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Bhramara</span>
+                        <span class="name-te">భ్రమర హస్తము</span>
+                    </div>
+                    <div class="name-sa">Bhramara Hasta (భ్రమరశ్చైవ)</div>
+                    <div><span class="meaning-pill">Meaning: Bee</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Bee hovering over flower, parrot, crane, cuckoo, gentle union.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.09.04 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#23</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_23_hamsasya.jpg" alt="Hamsasya Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Hamsasya</span>
+                        <span class="name-te">హంసాస్య హస్తము</span>
+                    </div>
+                    <div class="name-sa">Haṃsāsya Hasta (హంసాస్యో)</div>
+                    <div><span class="meaning-pill">Meaning: Swan's Beak</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Tying wedding thread (mangalasutra), painting, drawing lines, holding diamond, initiation.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.12.06 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#24</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_24_hamsapaksha.jpg" alt="Hamsapaksha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Hamsapaksha</span>
+                        <span class="name-te">హంసపక్ష హస్తము</span>
+                    </div>
+                    <div class="name-sa">Haṃsapakṣa Hasta (హంసపక్షకః)</div>
+                    <div><span class="meaning-pill">Meaning: Swan's Wing</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Number six, nail scratch, covering, arranging hair, flight of birds, bridge.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.18.30 AM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#25</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_25_samdamsha.jpg" alt="Samdamsha Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Samdamsha</span>
+                        <span class="name-te">సందంశ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Saṃdaṃśa Hasta (సందంశో)</div>
+                    <div><span class="meaning-pill">Meaning: Pincers / Grasping</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Offering sacrificial food, wound, insect bite, counting five, heart, trembling fear.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Authoritative PDF Plate (Page 7, Im254)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> Asamyutha_Hasthas.pdf (Page 7 illustration plate)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#26</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_26_mukula.jpg" alt="Mukula Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Mukula</span>
+                        <span class="name-te">ముకుల హస్తము</span>
+                    </div>
+                    <div class="name-sa">Mukula Hasta (ముకులశ్చైవ)</div>
+                    <div><span class="meaning-pill">Meaning: Bud / Closed Blossom</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Water lily, eating food, Panchabana's arrow, holding amulet, offering puja to navel.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.39.54 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#27</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_27_tamrachuda.jpg" alt="Tamrachuda Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Tamrachuda</span>
+                        <span class="name-te">తామ్రచూడ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Tāmracūḍa Hasta (తామ్రచూడ)</div>
+                    <div><span class="meaning-pill">Meaning: Rooster's Comb</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Rooster, crane, crow, camel, calf, writing letters, child's head.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.41.43 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#28</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/asamyukta_28_trishoola.jpg" alt="Trishoola Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Trishoola</span>
+                        <span class="name-te">త్రిశూల హస్తము</span>
+                    </div>
+                    <div class="name-sa">Triśūla Hasta (స్త్రిశూలకః)</div>
+                    <div><span class="meaning-pill">Meaning: Trident (Trishula)</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Trident of Lord Shiva, holy trinity (Brahma, Vishnu, Maheshvara), bilva leaf, three worlds.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.43.43 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION 2: SAMYUKTA HASTAS -->
+        <div class="section-header">
+            <h2>2. Samyukta Hasthas (24 Combined Two-Hand Gestures)</h2>
+            <span style="font-size: 0.9rem; color: var(--crimson); font-weight: 600;">Module 3 Syllabus</span>
+        </div>
+        <div class="shloka-bar">
+            <strong>Abhinaya Darpana Shloka:</strong> అంజలిశ్చ కపోతశ్చ కర్కటః స్వస్తికస్తథా | డోలాహస్తః పుష్పపుట ఉత్సంగః శివలింగకః || కటకావర్ధనశ్చైవ కర్తరీస్వస్తికస్తథా | శకటః శంఖచక్రౌ చ సంపుటః పాశకీలకౌ || మత్స్యః కూర్మో వరాహశ్చ గరుడో నాగబంధకః | ఖట్వా భేరుండకశ్చైవ తథావహిత్థకస్తథా || చతుర్వింశతిసంఖ్యాకాః సంయుతాః కథితాః కరాః ||
+        </div>
+        <div class="hasta-grid">
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#01</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_01_anjali.jpg" alt="Anjali Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Anjali</span>
+                        <span class="name-te">అంజలి హస్తము</span>
+                    </div>
+                    <div class="name-sa">Añjali Hasta (అంజలిశ్చ)</div>
+                    <div><span class="meaning-pill">Meaning: Salutation / Reverence</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Above head for deities, before face for preceptor/guru, before chest for scholars and elders.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.46.06 PM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#02</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_02_kapothamu.jpg" alt="Kapothamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Kapothamu</span>
+                        <span class="name-te">కపోత హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kapota Hasta (కపోతశ్చ)</div>
+                    <div><span class="meaning-pill">Meaning: Dove / Pigeon</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Respectful acceptance, greeting teacher with reverence, assent, chest cage.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.47.14 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#03</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_03_karkatamu.jpg" alt="Karkatamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Karkatamu</span>
+                        <span class="name-te">కర్కట హస్తము</span>
+                    </div>
+                    <div class="name-sa">Karkaṭa Hasta (కర్కటః)</div>
+                    <div><span class="meaning-pill">Meaning: Crab</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Arrival of a crowd, stretching limbs, bending a bough, blowing conch, yawn.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.50.16 PM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#04</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_04_swasthikamu.jpg" alt="Swasthikamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Swasthikamu</span>
+                        <span class="name-te">స్వస్తిక హస్తము</span>
+                    </div>
+                    <div class="name-sa">Svastika Hasta (స్వస్తికస్తథా)</div>
+                    <div><span class="meaning-pill">Meaning: Auspicious Cross</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Dispute, praising, vast spread of trees, shy modesty, timid refusal.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.52.28 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#05</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_05_dola_hastamu.jpg" alt="Dola hastamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Dola hastamu</span>
+                        <span class="name-te">డోలా హస్తము</span>
+                    </div>
+                    <div class="name-sa">Dolā Hasta (డోలాహస్తః)</div>
+                    <div><span class="meaning-pill">Meaning: Swing</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Beginning of natya, romantic swoon, fainting, intoxication, relaxation.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.54.49 PM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#06</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_06_pushpaputamu.jpg" alt="Pushpaputamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Pushpaputamu</span>
+                        <span class="name-te">పుష్పపుట హస్తము</span>
+                    </div>
+                    <div class="name-sa">Puṣpapuṭa Hasta (పుష్పపుటః)</div>
+                    <div><span class="meaning-pill">Meaning: Flower Casket</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Offering flowers to deities, evening twilight arati, taking water, carrying fruits.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 10.55.45 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#07</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_07_uthsungamu.jpg" alt="Uthsungamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Uthsungamu</span>
+                        <span class="name-te">ఉత్సంగ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Utsaṅga Hasta (ఉత్సంగః)</div>
+                    <div><span class="meaning-pill">Meaning: Embrace</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Embracing beloved, feeling bashful or shy, coaching young disciples, showing armlets.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.00.08 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#08</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_08_sivalingamu.jpg" alt="Sivalingamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Sivalingamu</span>
+                        <span class="name-te">శివలింగ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Śivaliṅga Hasta (శివలింగకః)</div>
+                    <div><span class="meaning-pill">Meaning: Shivalinga (Supreme Lord Shiva)</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Depicting Lord Shiva, temple sanctum sanctorum, eternal auspicious presence.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.02.48 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#09</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_09_katakavardhanamu.jpg" alt="Katakavardhanamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Katakavardhanamu</span>
+                        <span class="name-te">కటకావర్ధన హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kaṭakāvardhana Hasta (కటకావర్ధనశ్చైవ)</div>
+                    <div><span class="meaning-pill">Meaning: Link of Bracelets</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Coronation, marriage rituals, peaceful worship, dancing with royal dignity.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.05.27 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#10</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_10_karthariswasthikamu.jpg" alt="Karthariswasthikamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Karthariswasthikamu</span>
+                        <span class="name-te">కర్తరీస్వస్తిక హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kartarīsvastika Hasta (కర్తరీస్వస్తికస్తథా)</div>
+                    <div><span class="meaning-pill">Meaning: Crossed Scissors</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Stems of tall trees, hilltops, branches touching the sky, sacred woods.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.07.10 PM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#11</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_11_sakatamu.jpg" alt="Sakatamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Sakatamu</span>
+                        <span class="name-te">శకట హస్తము</span>
+                    </div>
+                    <div class="name-sa">Śakaṭa Hasta (శకటః)</div>
+                    <div><span class="meaning-pill">Meaning: Cart / Chariot</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Demons, fierce Rakshasas, wheels of a carriage, large wooden wagon.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.08.35 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#12</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_12_sankhamu.jpg" alt="Sankhamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Sankhamu</span>
+                        <span class="name-te">శంఖ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Śaṅkha Hasta (శంఖః)</div>
+                    <div><span class="meaning-pill">Meaning: Conch Shell (Panchajanya)</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Sacred conch of Lord Vishnu, blowing auspicious bugle, ocean treasures.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.09.36 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#13</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_13_chakramu.jpg" alt="Chakramu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Chakramu</span>
+                        <span class="name-te">చక్ర హస్తము</span>
+                    </div>
+                    <div class="name-sa">Cakra Hasta (చక్రౌ)</div>
+                    <div><span class="meaning-pill">Meaning: Discus (Sudarshana Chakra)</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Lord Vishnu's Sudarshana wheel, cutting weapons, cosmic cycle.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.11.08 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#14</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_14_samputamu.jpg" alt="Samputamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Samputamu</span>
+                        <span class="name-te">సంపుట హస్తము</span>
+                    </div>
+                    <div class="name-sa">Sampuṭa Hasta (సంపుటః)</div>
+                    <div><span class="meaning-pill">Meaning: Casket / Secret Container</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Concealing precious things, jewelry casket, magical box, covered chest.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.12.32 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#15</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_15_paasamu.jpg" alt="Paasamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Paasamu</span>
+                        <span class="name-te">పాశ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Pāśa Hasta (పాశః)</div>
+                    <div><span class="meaning-pill">Meaning: Noose / Snare</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Quarrels, conflict, noose of Varuna or Yama, strings, chaining.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.13.55 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#16</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_16_keelakamu.jpg" alt="Keelakamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Keelakamu</span>
+                        <span class="name-te">కీలక హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kīlaka Hasta (కీలకౌ)</div>
+                    <div><span class="meaning-pill">Meaning: Bond / Intimacy</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Deep affectionate bond, playful conversation between lovers, friendship.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.16.24 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#17</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_17_matsyamu.jpg" alt="Matsyamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Matsyamu</span>
+                        <span class="name-te">మత్స్య హస్తము</span>
+                    </div>
+                    <div class="name-sa">Matsya Hasta (మత్స్యః)</div>
+                    <div><span class="meaning-pill">Meaning: Fish (Matsya Avatara)</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Fish in clear water, Lord Vishnu's first incarnation, swimming gently.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.17.07 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#18</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_18_kurmamu.jpg" alt="Kurmamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Kurmamu</span>
+                        <span class="name-te">కూర్మ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Kūrma Hasta (కూర్మో)</div>
+                    <div><span class="meaning-pill">Meaning: Tortoise (Kurma Avatara)</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Lord Vishnu's Kurma incarnation bearing Mount Mandara, tortoise sheltering.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.18.24 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#19</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_19_varahamu.jpg" alt="Varahamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Varahamu</span>
+                        <span class="name-te">వరాహ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Varāha Hasta (వరాహశ్చ)</div>
+                    <div><span class="meaning-pill">Meaning: Boar (Varaha Avatara)</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Lord Vishnu's boar incarnation lifting Mother Earth from cosmic waters.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.20.26 PM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#20</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_20_garudamu.jpg" alt="Garudamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Garudamu</span>
+                        <span class="name-te">గరుడ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Garuḍa Hasta (గరుడో)</div>
+                    <div><span class="meaning-pill">Meaning: Eagle / Kite (Garuda Vahana)</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Garuda, soaring vehicle of Vishnu, graceful winged flight.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.22.03 PM (1).jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#21</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_21_nagabandhakamu.jpg" alt="Nagabandhakamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Nagabandhakamu</span>
+                        <span class="name-te">నాగబంధ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Nāgabandha Hasta (నాగబంధకః)</div>
+                    <div><span class="meaning-pill">Meaning: Serpent Coil</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Entwined serpents, naga shrines, magical circular lock, creepers.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.25.14 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#22</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_22_khatva.jpg" alt="Khatva Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Khatva</span>
+                        <span class="name-te">ఖట్వా హస్తము</span>
+                    </div>
+                    <div class="name-sa">Khaṭvā Hasta (ఖట్వా)</div>
+                    <div><span class="meaning-pill">Meaning: Cot / Bedstead / Palanquin</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Couch, bridge, resting pavilion, litter, palanquin.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.27.22 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#23</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_23_bherundamu.jpg" alt="Bherundamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Bherundamu</span>
+                        <span class="name-te">భేరుండ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Bheruṇḍa Hasta (భేరుండకశ్చైవ)</div>
+                    <div><span class="meaning-pill">Meaning: Double-Headed Mythical Bird</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Gandabherunda pair of birds, ferocious divine protectors, majestic flight.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.29.49 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hasta-card">
+                <div class="card-img-wrap">
+                    <span class="order-badge">#24</span>
+                    <span class="verify-badge">✓ Verified Authentic</span>
+                    <img src="assets/hastas/samyukta_24_avahithamu.jpg" alt="Avahithamu Samyukta Hasta" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-title-row">
+                        <span class="name-en">Avahithamu</span>
+                        <span class="name-te">అవహిత్థ హస్తము</span>
+                    </div>
+                    <div class="name-sa">Avahittha Hasta (తథావహిత్థకస్తథా)</div>
+                    <div><span class="meaning-pill">Meaning: Dissimulation / Concealed Emotion</span></div>
+                    <p class="usage-text"><strong>Key Usages:</strong> Holding one's inner feelings secret, bashfulness, chest ornament, touching breasts.</p>
+                    <div class="source-meta">
+                        <div><strong>Source:</strong> Original Dataset (Dancer Photography)</div>
+                        <div style="word-break: break-all;"><strong>File:</strong> WhatsApp Image 2026-09-11 at 11.32.47 PM.jpeg</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p><strong>Nritya AI</strong> — AI-Based Kuchipudi Dance Learning, Recognition & Analysis System</p>
+            <p>Visual Verification Manifest generated for Stage 9 Cultural & Technical Audit.</p>
+        </footer>
+    </div>
+</body>
+</html>

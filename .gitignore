@@ -1,0 +1,74 @@
+# ==============================================================================
+# Nritya AI - Git Ignore Rules
+# ==============================================================================
+
+# Secrets and Environment Variables (MUST NEVER BE COMMITTED)
+.env
+.env.*
+*.env
+!.env.example
+!backend/.env.example
+
+# SQLite Databases & Dynamic State (MUST NEVER BE COMMITTED)
+*.db
+*.sqlite
+*.sqlite3
+backend/kuchipudi.db
+backend/kuchipudi_backup.db
+kuchipudi.db
+
+# Python Virtual Environments & Packages
+**/.venv/
+**/.env/
+**/venv/
+**/env/
+**/ENV/
+Python311/
+build/
+dist/
+*.egg-info/
+
+# Python Bytecode & Cache
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+
+# Node.js & Frontend Build Outputs
+**/node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+.vite/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Large Datasets, Training Artifacts & Scratch Work (Preserved locally, excluded from Git)
+Data set/
+data/
+models/
+scratch/
+_archive/
+/reports/
+/results/
+deployment/
+deployment_final/
+
+# OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Explicitly Preserve Canonical AI Model Weights & Source PDFs
+!deployment_clean/nritya_ai_weights.keras
+!docs/pdfs/
+!theory.zip
