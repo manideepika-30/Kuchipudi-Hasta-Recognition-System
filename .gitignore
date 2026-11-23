@@ -54,8 +54,8 @@ data/
 models/
 scratch/
 _archive/
-reports/
-results/
+/reports/
+/results/
 deployment/
 deployment_final/
 
